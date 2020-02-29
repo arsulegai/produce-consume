@@ -103,7 +103,7 @@ services:
     container_name: sabre-cli
     volumes:
       - keys:/keys
-      - .:/project
+      - ..:/project
     networks:
       localnet:
     entrypoint: "bash -c \"\
@@ -128,9 +128,9 @@ services:
     volumes:
       - project:/project
       - keys:/keys
-    working_dir: /project/cli/
     networks:
       localnet:
+    working_dir: /cli
     command: "bash -c \"\
     tail -f /dev/null \
     \""

@@ -28,7 +28,7 @@ RUN cargo build
 
 #=============================================================================    
 
-FROM ubuntu:bionic
+FROM docker.pkg.github.com/arsulegai/hgf2020/rust-installed:latest
 
 RUN mkdir -p /cli/target/debug
 
