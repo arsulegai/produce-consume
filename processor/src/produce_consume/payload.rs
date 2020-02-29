@@ -16,13 +16,11 @@ use super::super::proto::action::Action;
 use super::super::proto::action::Action_Command;
 
 cfg_if! {
-    /*
     if #[cfg(target_arch = "wasm32")] {
         use sabre_sdk::ApplyError;
     } else {
-    */
         use sawtooth_sdk::processor::handler::ApplyError;
-    //}
+    }
 }
 
 #[derive(Debug)]

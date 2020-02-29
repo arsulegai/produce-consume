@@ -18,16 +18,14 @@ extern crate cfg_if;
 extern crate std;
 
 cfg_if! {
-	/*
     if #[cfg(target_arch = "wasm32")] {
         #[macro_use]
         extern crate sabre_sdk;
     } else {
-    */
         #[macro_use]
         extern crate log;
         extern crate sawtooth_sdk;
-    //}
+    }
 }
 
 pub mod produce_consume;
