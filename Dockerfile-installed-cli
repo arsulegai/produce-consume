@@ -25,3 +25,13 @@ COPY protos /protos
 WORKDIR /cli
 
 RUN cargo build
+
+#=============================================================================    
+
+FROM ubuntu:bionic
+
+RUN mkdir -p /cli/target/debug
+
+COPY --from=builder /cli/target/debug/pc-cli /cli/target/debug/pc-cli
+
+WORKDIR /cli/target
