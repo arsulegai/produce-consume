@@ -103,7 +103,7 @@ services:
     container_name: sabre-cli
     volumes:
       - keys:/keys
-      - ..:/project
+      - ../../:/project
     networks:
       localnet:
     entrypoint: "bash -c \"\
