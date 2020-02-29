@@ -15,6 +15,7 @@
 pub mod handler;
 pub(crate) mod payload;
 
+/*
 cfg_if! {
     if #[cfg(target_arch = "wasm32")] {
         use sabre_sdk::{WasmPtr, execute_entrypoint};
@@ -59,3 +60,4 @@ pub unsafe fn entrypoint(payload: WasmPtr, signer: WasmPtr, signature: WasmPtr) 
     // Implement the apply method, this is the core business logic part of the Sabre
     execute_entrypoint(payload, signer, signature, apply)
 }
+*/

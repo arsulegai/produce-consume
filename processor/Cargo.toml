@@ -29,12 +29,12 @@ path = "src/main.rs"
 [dependencies]
 protobuf = "2"
 
-[target.'cfg(target_arch = "wasm32")'.dependencies]
+#[target.'cfg(target_arch = "wasm32")'.dependencies]
 # This can be changed to the releasd crate version
-sabre-sdk = "0.4"
-rust-crypto-wasm = "0.3"
+#sabre-sdk = "0.4"
+#rust-crypto-wasm = "0.3"
 
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+#[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 sawtooth-sdk = "0.3"
 clap = "2"
 rust-crypto = "0.2.36"
