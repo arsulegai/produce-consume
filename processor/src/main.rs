@@ -56,9 +56,10 @@ pub mod proto;
 fn main() {
     info!("BEGINNING OF SABRE SMART CONTRACT")
 }
-*/
+
 
 #[cfg(not(target_arch = "wasm32"))]
+*/
 fn main() {
     let matches = App::new("produce-consume")
         .author("Walmart Inc.")
