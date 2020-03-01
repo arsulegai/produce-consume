@@ -32,7 +32,6 @@ use std::process;
 pub mod produce_consume;
 pub mod proto;
 
-#[cfg(not(target_arch = "wasm32"))]
 fn main() {
     let matches = App::new("produce-consume")
         .author("Walmart Inc.")
