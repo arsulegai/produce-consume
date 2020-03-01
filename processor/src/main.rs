@@ -12,51 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Uncomment block comments in this file, to make the smart contract
-// compatible with the sawtooth-sabre
-
-/*
-#![feature(rustc_private)]
-#[macro_use]
-extern crate cfg_if;
-*/
 extern crate std;
 
-/*
-cfg_if! {
-    if #[cfg(target_arch = "wasm32")] {
-        #[macro_use]
-        extern crate sabre_sdk;
-    } else {
-*/
-        extern crate clap;
-        #[macro_use]
-        extern crate log;
-        extern crate sawtooth_sdk;
+extern crate clap;
+#[macro_use]
+extern crate log;
+extern crate sawtooth_sdk;
 
-        use clap::App;
-        use clap::Arg;
-        use std::process;
-        use log::LogLevelFilter;
-        use log4rs::append::console::ConsoleAppender;
-        use log4rs::config::{Appender, Config, Root};
-        use log4rs::encode::pattern::PatternEncoder;
-        use sawtooth_sdk::processor::TransactionProcessor;
-        use crate::produce_consume::handler::ProduceConsumeHandler;
-/*
-    }
-}
-*/
+use crate::produce_consume::handler::ProduceConsumeHandler;
+use clap::App;
+use clap::Arg;
+use log::LogLevelFilter;
+use log4rs::append::console::ConsoleAppender;
+use log4rs::config::{Appender, Config, Root};
+use log4rs::encode::pattern::PatternEncoder;
+use sawtooth_sdk::processor::TransactionProcessor;
+use std::process;
 
 pub mod produce_consume;
 pub mod proto;
-
-/*
-#[cfg(target_arch = "wasm32")]
-fn main() {
-    info!("BEGINNING OF SABRE SMART CONTRACT")
-}
-*/
 
 #[cfg(not(target_arch = "wasm32"))]
 fn main() {
