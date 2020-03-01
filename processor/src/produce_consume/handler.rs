@@ -87,7 +87,6 @@ impl TransactionHandler for ProduceConsumeHandler {
         // Check for overflow scenarios
         let new_value = match payload.get_command() {
             Action_Command::PRODUCE => value.checked_add(payload.get_quantity()),
-            Action_Command::CONSUME => value.checked_sub(payload.get_quantity()),
         };
         // unwrapping is safe after none condition check
         if new_value.is_none() || new_value.unwrap() < 0 {
@@ -101,7 +100,7 @@ impl TransactionHandler for ProduceConsumeHandler {
             new_value.unwrap()
         );
 
-        // Either produce or consume successful, store the new state back, serialize the value
+        // Produce successful, store the new state back, serialize the value
         let new_value_bytes = new_value.unwrap().to_ne_bytes();
 
         context.set_state_entries(vec![(address, new_value_bytes.to_vec())])?;
