@@ -18,7 +18,6 @@ message Action {
     // The command can be either produce or consume
     enum Command {
         PRODUCE = 0;
-        CONSUME = 1;
     }
     Command command = 1;
     // The identifier/name of the produced or consumed good
