@@ -12,18 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Uncomment block comments in this file, to make the smart contract
+// compatible with the sawtooth-sabre
+
+/*
 #![feature(rustc_private)]
 #[macro_use]
 extern crate cfg_if;
+*/
 extern crate std;
 
-
+/*
 cfg_if! {
-    /*if #[cfg(target_arch = "wasm32")] {
+    if #[cfg(target_arch = "wasm32")] {
         #[macro_use]
         extern crate sabre_sdk;
     } else {
-    */
+*/
         extern crate clap;
         #[macro_use]
         extern crate log;
@@ -38,8 +43,10 @@ cfg_if! {
         use log4rs::encode::pattern::PatternEncoder;
         use sawtooth_sdk::processor::TransactionProcessor;
         use crate::produce_consume::handler::ProduceConsumeHandler;
-    //}
+/*
+    }
 }
+*/
 
 pub mod produce_consume;
 pub mod proto;

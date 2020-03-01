@@ -15,6 +15,9 @@
 pub mod handler;
 pub(crate) mod payload;
 
+// Uncomment block comments in this file, to make the smart contract
+// compatible with the sawtooth-sabre
+
 /*
 cfg_if! {
     if #[cfg(target_arch = "wasm32")] {

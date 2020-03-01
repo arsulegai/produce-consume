@@ -17,21 +17,26 @@ use super::payload::ProduceConsumePayload;
 use crypto::digest::Digest;
 use crypto::sha2::Sha512;
 
+// Uncomment block comments in this file, to make the smart contract
+// compatible with the sawtooth-sabre
+
+/*
 cfg_if! {
-    /*
     if #[cfg(target_arch = "wasm32")] {
         use sabre_sdk::ApplyError;
         use sabre_sdk::TransactionContext;
         use sabre_sdk::TransactionHandler;
         use sabre_sdk::TpProcessRequest;
     } else {
-    */
+*/
         use sawtooth_sdk::processor::handler::ApplyError;
         use sawtooth_sdk::processor::handler::TransactionContext;
         use sawtooth_sdk::processor::handler::TransactionHandler;
         use sawtooth_sdk::messages::processor::TpProcessRequest;
-    //}
+/*
+    }
 }
+*/
 
 const PRODUCE_CONSUME: &str = "produce-consume";
 const VERSION: &str = "1.0";

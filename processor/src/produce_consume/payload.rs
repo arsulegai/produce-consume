@@ -15,15 +15,20 @@
 use super::super::proto::action::Action;
 use super::super::proto::action::Action_Command;
 
+// Uncomment block comments in this file, to make the smart contract
+// compatible with the sawtooth-sabre
+
+/*
 cfg_if! {
-    /*
     if #[cfg(target_arch = "wasm32")] {
         use sabre_sdk::ApplyError;
     } else {
-    */
+*/
         use sawtooth_sdk::processor::handler::ApplyError;
-    //}
+/*
+    }
 }
+*/
 
 #[derive(Debug)]
 pub(crate) struct ProduceConsumePayload {
