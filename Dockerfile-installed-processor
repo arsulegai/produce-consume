@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM docker.pkg.github.com/arsulegai/hgf2020/rust-nightly-installed:latest as builder
+FROM docker.pkg.github.com/arsulegai/hgf2020/rust-installed:latest as builder
 
 RUN mkdir -p /pc
 
@@ -24,10 +24,10 @@ COPY protos /protos
 
 WORKDIR /pc
 
-RUN cargo build --target wasm32-unknown-unknown --release
+RUN cargo build
 
 #=============================================================================    
 
-FROM ubuntu:bionic
+FROM docker.pkg.github.com/arsulegai/hgf2020/rust-installed:latest
 
-COPY --from=builder /pc/target/wasm32-unknown-unknown/release/produce-consume.wasm /produce-consume.wasm
+COPY --from=builder /pc/target/debug/produce-consume  /produce-consume
