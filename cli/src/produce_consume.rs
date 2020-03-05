@@ -40,8 +40,6 @@ pub(crate) fn submit_payload(
 ) -> Result<(), CliError> {
     let cmd: Action_Command = if command == "PRODUCE" {
         Action_Command::PRODUCE
-    } else if command == "CONSUME" {
-        Action_Command::CONSUME
     } else {
         panic!("Unexpected scenario");
     };
