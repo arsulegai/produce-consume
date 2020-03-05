@@ -29,7 +29,7 @@ use std::io::Read;
 use std::io::Write;
 
 pub(crate) const PRODUCE_CONSUME: &str = "produce-consume";
-pub(crate) const VERSION: &str = "1.0";
+pub(crate) const VERSION: &str = "0.5";
 
 pub(crate) fn submit_payload(
     command: &str,

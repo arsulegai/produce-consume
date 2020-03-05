@@ -23,7 +23,7 @@ use sawtooth_sdk::processor::handler::TransactionContext;
 use sawtooth_sdk::processor::handler::TransactionHandler;
 
 const PRODUCE_CONSUME: &str = "produce-consume";
-const VERSION: &str = "1.0";
+const VERSION: &str = "0.5";
 
 pub struct ProduceConsumeHandler {
     family_name: String,
