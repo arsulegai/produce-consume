@@ -16,6 +16,7 @@ version: "3.6"
 
 volumes:
   keys:
+    name: keys
   project:
 
 # Create a network, this will be used for adding more containers later
@@ -91,40 +92,20 @@ services:
       devmode-engine-rust -v --connect tcp://validator:5050
     stop_signal: SIGKILL
 
-  sabre-tp:
-    image: sawtooth-sabre-tp:latest
-    container_name: sabre-tp
-    networks:
-      localnet:
-    entrypoint: sawtooth-sabre -vvv -C tcp://validator:4004
-
-  sabre-cli:
-    image: hyperledger/sawtooth-sabre-cli:0.5.1
-    container_name: sabre-cli
-    volumes:
-      - keys:/keys
-      - ../../:/project
-    networks:
-      localnet:
-    entrypoint: "bash -c \"\
-      tail -f /dev/null \
-      \""
-
   processor:
     container_name: pc-processor
-    image: docker.pkg.github.com/arsulegai/produce-consume/pc-processor:sabre
+    image: docker.pkg.github.com/arsulegai/produce-consume/pc-processor:produce
     volumes:
       - project:/project
     networks:
       localnet:
     command: "bash -c \"\
-      mkdir -p /project/processor/target/wasm32-unknown-unknown/release/ && \
-      cp /produce-consume.wasm /project/processor/target/wasm32-unknown-unknown/release/produce-consume.wasm
+      /produce-consume -C tcp://validator:4004 -vvv
     \""
 
   cli:
     container_name: pc-cli
-    image: docker.pkg.github.com/arsulegai/produce-consume/pc-cli:sabre
+    image: docker.pkg.github.com/arsulegai/produce-consume/pc-cli:produce
     volumes:
       - project:/project
       - keys:/keys
@@ -134,3 +115,4 @@ services:
     command: "bash -c \"\
     tail -f /dev/null \
     \""
+
