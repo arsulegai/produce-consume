@@ -31,7 +31,7 @@ protobuf = "2"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 # This can be changed to the releasd crate version
-sabre-sdk = { git = "https://github.com/arsulegai/sawtooth-sabre", branch = "add_event" }
+sabre-sdk = { git = "https://github.com/arsulegai/sawtooth-sabre", branch = "add_event_wip" }
 rust-crypto-wasm = "0.3"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]

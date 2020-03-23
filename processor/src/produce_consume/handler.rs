@@ -93,7 +93,7 @@ impl TransactionHandler for ProduceConsumeHandler {
         };
         info!("Read the value {}: {}", &payload.get_identifier(), value);
     
-        context.add_event(String::from("input_values"), Vec::new(), &Vec::new())?;
+        context.add_event(String::from("input_values"), Vec::new(), format!("{}", value).as_bytes())?;
 
         // Check for overflow scenarios
         let new_value = match payload.get_command() {
